@@ -1,11 +1,5 @@
 package main
-import (
-	"os"
-	"bufio"
-	"strconv"
-	"fmt"
-	"strings"
-)
+import "fmt"
 
 func printSlice(sli []int) {
 	fmt.Printf("Slice order: ")
@@ -28,29 +22,15 @@ func sortSlice(sli []int) {
 }
 
 func main () {
-	scanner := bufio.NewScanner(os.Stdin)
-
 	var i int = 0
 	var sli []int = make([]int, 3, 3)
 	for {
 		fmt.Println("Add number to the slice: ")
-		scanner.Scan()
-		input := scanner.Text()
-		if input == "X" || input == "x"{
-			fmt.Println("Exiting ...")
-			break
-		}
-		if strings.Contains(input, " ") {
-			fmt.Println("Invalid input, only one digit at time")
-			continue
-		}
-		if n, err := strconv.Atoi(input); err  == nil {
-			sli[i] = n
-			i = (i + 1) % 3
-			if i == 0 {
-				sortSlice(sli)
-				printSlice(sli)
-			}
+		fmt.Scan(&sli[i])
+		i = (i + 1) % 3
+		if i == 0 {
+			sortSlice(sli)
+			printSlice(sli)
 		}
 	}
 }
