@@ -7,8 +7,6 @@ import (
 func main() {
 	var s string
 	fmt.Println("Enter a string")
-	fmt.Sscan()
-	fmt.Scan()
 	fmt.Scanln(&s)
 	if strings.Compare(string(s[0]), "i") == 0 &&
 		strings.Contains(s, "a") == true &&
